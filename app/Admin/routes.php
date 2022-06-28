@@ -16,5 +16,7 @@ Route::group([
     $router->resource('products', ProductController::class);
     $router->resource('storage-units', StorageUnitController::class);
     $router->resource('categories', CategoryController::class);
+    $router->resource('orders', OrderController::class);
+    $router->resource('settings', SettingsController::class);
 
 });
