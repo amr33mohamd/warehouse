@@ -21,7 +21,7 @@ class ApiController extends Controller
                     [
                         'orders'=>$orders->count(),
                         'type'=>$order->type,
-                        'x'=>$order->Storage_unit->x,
+                        'x'=>abs($order->Storage_unit->x -$starting_point->x),
                         'y'=>$order->Storage_unit->y - 1,
                         'direction'=>$direction,
                         'id'=>$order->id
@@ -34,7 +34,7 @@ class ApiController extends Controller
                     [
                         'orders'=>$orders->count(),
                         'type'=>$order->type,
-                        'x'=>$order->Product->storage_unit->x,
+                        'x'=>abs($order->Product->storage_unit->x -$starting_point->x),
                         'y'=>$order->Product->storage_unit->y - 1,
                         'direction'=>$direction,
                         'id'=>$order->id
