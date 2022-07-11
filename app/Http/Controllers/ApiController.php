@@ -9,13 +9,15 @@ use function Symfony\Component\VarDumper\Dumper\esc;
 
 class ApiController extends Controller
 {
+    
+    //r = 1 l = 2
     public function new_orders(Request $request)
     {
         $orders = \App\Models\Order::where('status','waiting')->get();
         $starting_point = Setting::where('name','starting_point')->first();
         if($orders->count() > 0){
             $order = $orders->first();
-            $direction = (($order->Storage_unit->x) > $starting_point->x) ? 'r' : 'l';
+            $direction = (($order->Storage_unit->x) > $starting_point->x) ? 1 : 2;
             if($order->type == "add"){
                 return
                     [
@@ -29,7 +31,7 @@ class ApiController extends Controller
                     ];
             }
             else{
-                $direction = (($order->Storage_unit->x) > $starting_point->x) ? 'r' : 'l';
+                $direction = (($order->Storage_unit->x) > $starting_point->x) ? 1 : 2;
                 return
                     [
                         'orders'=>$orders->count(),
