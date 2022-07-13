@@ -11,6 +11,7 @@ class ApiController extends Controller
 {
     
     //r = 1 l = 2
+    //add = 1 get = 2
     public function new_orders(Request $request)
     {
         $orders = \App\Models\Order::where('status','waiting')->get();
@@ -22,7 +23,7 @@ class ApiController extends Controller
                 return
                     [
                         'orders'=>$orders->count(),
-                        'type'=>$order->type,
+                        'type'=>1,
                         'x'=>abs($order->Storage_unit->x -$starting_point->x),
                         'y'=>$order->Storage_unit->y - 1,
                         'direction'=>$direction,
@@ -35,7 +36,7 @@ class ApiController extends Controller
                 return
                     [
                         'orders'=>$orders->count(),
-                        'type'=>$order->type,
+                        'type'=>2,
                         'x'=>abs($order->Product->storage_unit->x -$starting_point->x),
                         'y'=>$order->Product->storage_unit->y - 1,
                         'direction'=>$direction,
