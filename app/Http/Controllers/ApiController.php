@@ -38,7 +38,7 @@ class ApiController extends Controller
                         'orders'=>$orders->count(),
                         'type'=>2,
                         'x'=>abs($order->Product->storage_unit->x -$starting_point->x),
-                        'y'=>$order->Product->storage_unit->y - 1,
+                        'y'=>$order->Product->Storage_unit->y - 1,
                         'direction'=>$direction,
                         'id'=>$order->id
                     ];
