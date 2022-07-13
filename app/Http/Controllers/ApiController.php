@@ -32,7 +32,7 @@ class ApiController extends Controller
                     ];
             }
             else{
-                $direction = (($order->Storage_unit->x) > $starting_point->x) ? 1 : 2;
+                $direction = (($order->Product->Storage_unit->x) > $starting_point->x) ? 1 : 2;
                 return
                     [
                         'orders'=>$orders->count(),
