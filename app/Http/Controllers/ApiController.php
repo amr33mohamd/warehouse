@@ -18,8 +18,8 @@ class ApiController extends Controller
         $starting_point = Setting::where('name','starting_point')->first();
         if($orders->count() > 0){
             $order = $orders->first();
-            $direction = (($order->Storage_unit->x) > $starting_point->x) ? 1 : 2;
             if($order->type == "add"){
+                $direction = (($order->Storage_unit->x) > $starting_point->x) ? 1 : 2;
                 return
                     [
                         'orders'=>$orders->count(),
