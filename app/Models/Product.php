@@ -10,6 +10,6 @@ class Product extends Model
     use HasFactory;
     protected $guarded =[];
     public  function Storage_unit(){
-        $this->belongsTo(StorageUnit::class,'id','storage_unit_id');
+        return $this->belongsTo(StorageUnit::class,'id','storage_unit_id');
     }
 }
