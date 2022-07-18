@@ -55,7 +55,7 @@ class ApiController extends Controller
     public function change_order_status(Request $request)
     {
         $id = str_replace("id:","",$request->id);
-        $order = Order::where('id',$request->id)->update(
+        $order = Order::where('id',$id)->update(
             ['status'=>"done"]
         );
         if($order) {
